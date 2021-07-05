@@ -8,7 +8,7 @@ import com.example.week5.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-    private lateinit var MyAdapter:
+    private lateinit var myListAdapter: MyAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

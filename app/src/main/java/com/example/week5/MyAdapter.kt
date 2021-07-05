@@ -11,29 +11,30 @@ import java.security.AccessControlContext
 class MyAdapter(val arrayList: ArrayList<Model>, val context: Context):
     RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
-    class ViewHolder(val binding: MyAdapter)
+    class ViewHolder(val binding: )
         : RecyclerView.ViewHolder(binding.root){
 
         fun bind (model: Model){
 
-            binding.Firstname.text = row.firstname
-            binding.lastname.text = row.lastname
-            binding.image.setImageResource(row.image)
+            binding.Firstname.text = arrayListOf<>().firstname
+            binding.lastname.text = arrayListOf<>().lastname
+            binding.image.setImageResource(arrayListOf().image)
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.ViewHolder {
-        val binding = rowBinding = rowBinding.inflate(layoutInflater.from(parent.context))
+        val binding : my = rowBinding.inflate(layoutInflater.from(parent.context))
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MyAdapter.ViewHolder, position: Int) {
-        holder.bind (row.get(position))
+        val list = arrayList.get(position)
+        holder.bind (list)
     }
 
     override fun getItemCount(): Int {
-        return row.size
+        return arrayList.size
     }
 
 }
