@@ -5,40 +5,49 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.week5.databinding.ActivityMainBinding
 
+import android.widget.EditText
+import android.widget.LinearLayout
+import androidx.appcompat.widget.SearchView
+
+
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.collections.ArrayList
+
+
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+
     private lateinit var myListAdapter: MyAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+
+        setContentView(R.layout.activity_main)
+
 
         val arrayList = ArrayList<Model>()
+        val displayList = ArrayList<Model>()
 
-        arrayList.add(Model("Mary", "John", R.drawable.woman))
         arrayList.add(Model("Faith", "Mark", R.drawable.woman))
-        arrayList.add(Model("Sarah", "John", R.drawable.woman))
-        arrayList.add(Model("Suzan", "Monday", R.drawable.woman))
-        arrayList.add(Model("Favour", "Henry", R.drawable.woman))
-        arrayList.add(Model("James", "Frank", R.drawable.woman))
-        arrayList.add(Model("Happy", "Mike", R.drawable.woman))
         arrayList.add(Model("Helen", "Frank", R.drawable.woman))
         arrayList.add(Model("Mia", "George", R.drawable.woman))
         arrayList.add(Model("Marcel", "Frank", R.drawable.woman))
         arrayList.add(Model("Lori", "Jude", R.drawable.woman))
         arrayList.add(Model("Josh", "Rex", R.drawable.woman))
         arrayList.add(Model("Handel", "Kes", R.drawable.woman))
-        arrayList.add(Model("Hope", "Josh", R.drawable.woman))
-        arrayList.add(Model("Max", "Mark",R.drawable.woman))
-        arrayList.add(Model("Sam", "Lucky", R.drawable.woman))
-        arrayList.add(Model("KIm", "Rice", R.drawable.woman))
-        arrayList.add(Model("Mike", "Frank", R.drawable.woman)
+        displayList.addAll(arrayList)
 
 
-            binding.recyclerView.adapter = MyAdapter
+        val myAdapter = MyAdapter(arrayList, this)
+
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = myAdapter
+
+
 
 
 

@@ -7,30 +7,30 @@ import android.view.ViewGroup
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import java.security.AccessControlContext
+import kotlinx.android.synthetic.main.row.view.*
 
 class MyAdapter(val arrayList: ArrayList<Model>, val context: Context):
     RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
-    class ViewHolder(val binding: )
-        : RecyclerView.ViewHolder(binding.root){
 
-        fun bind (model: Model){
 
-            binding.Firstname.text = arrayListOf<>().firstname
-            binding.lastname.text = arrayListOf<>().lastname
-            binding.image.setImageResource(arrayListOf().image)
+
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        fun bindItems(model:Model) {
+            itemView.firstname.text = model.firstname
+            itemView.lastname.text = model.lastname
+            itemView.image.setImageResource(model.image)
         }
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.ViewHolder {
-        val binding : my = rowBinding.inflate(layoutInflater.from(parent.context))
-        return ViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.row, parent, false)
+        return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: MyAdapter.ViewHolder, position: Int) {
         val list = arrayList.get(position)
-        holder.bind (list)
+        holder.bindItems(list)
     }
 
     override fun getItemCount(): Int {
